@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_menu_mobile_items",
+  "info": {
+    "displayName": "Item do Menu Mobile",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Destaque": {
+      "type": "boolean",
+      "default": false
+    },
+    "Sublinks": {
+      "type": "component",
+      "component": "menu.link",
+      "repeatable": true
+    }
+  }
+}

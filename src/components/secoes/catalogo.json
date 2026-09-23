@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_secoes_catalogos",
+  "info": {
+    "displayName": "Catálogo",
+    "icon": "grid",
+    "description": "Seção de catálogo com tabs por categoria e cards de produto"
+  },
+  "options": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "default": "Catálogo"
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Global"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Logo_branca": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Menu_header": {
+      "type": "component",
+      "component": "menu.menu",
+      "repeatable": true
+    },
+    "Footer": {
+      "type": "component",
+      "component": "secoes.footer",
+      "repeatable": false
+    },
+    "Mais_buscados": {
+      "type": "component",
+      "component": "busca.termo",
+      "repeatable": true
+    },
+    "Menu_mobile": {
+      "type": "component",
+      "component": "menu.mobile-item",
+      "repeatable": true
+    },
+    "Menu_mobile_footer_1": {
+      "type": "component",
+      "component": "menu.link",
+      "repeatable": true
+    },
+    "Menu_mobile_footer_2": {
+      "type": "component",
+      "component": "menu.link",
+      "repeatable": true
+    }
+  }
+}

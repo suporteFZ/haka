@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_secoes_banner_principals",
+  "info": {
+    "displayName": "Banner principal",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "Desktop": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Mobile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Texto": {
+      "type": "string"
+    },
+    "texto_botao": {
+      "type": "string",
+      "default": "Visite nosso showroom em Toledo"
+    }
+  },
+  "config": {}
+}

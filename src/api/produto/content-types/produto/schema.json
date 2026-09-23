@@ -1,0 +1,163 @@
+{
+  "kind": "collectionType",
+  "collectionName": "produtos",
+  "info": {
+    "singularName": "produto",
+    "pluralName": "produtos",
+    "displayName": "Produto"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Nome",
+      "required": true
+    },
+    "Subtitulo": {
+      "type": "text"
+    },
+    "Preco": {
+      "type": "decimal",
+      "required": false
+    },
+    "Preco_promocional": {
+      "type": "decimal"
+    },
+    "Estoque": {
+      "type": "integer",
+      "default": 0
+    },
+    "Parcelas": {
+      "type": "integer",
+      "default": 10
+    },
+    "Ativo": {
+      "type": "boolean",
+      "default": true
+    },
+    "Visivel": {
+      "type": "boolean"
+    },
+    "Mais_vendido": {
+      "type": "boolean",
+      "default": false
+    },
+    "Altura_recomendada": {
+      "type": "string"
+    },
+    "Peso_maximo": {
+      "type": "string"
+    },
+    "Imagem_destaque": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Foto_mais_vendidos": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "categoria": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categoria.categoria"
+    },
+    "marca": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::marca.marca"
+    },
+    "garantias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::garantia.garantia",
+      "mappedBy": "produtos"
+    },
+    "produtos_compre_junto": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::produto.produto"
+    },
+    "Variacoes": {
+      "type": "component",
+      "component": "produto.variacao-cor",
+      "repeatable": true
+    },
+    "Imagem_recursos": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Imagem_recursos_mobile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Titulo_texto": {
+      "type": "string"
+    },
+    "Texto": {
+      "type": "text"
+    },
+    "Especificacoes": {
+      "type": "component",
+      "component": "produto.especificacao-item",
+      "repeatable": true
+    },
+    "Medidas": {
+      "type": "component",
+      "component": "produto.especificacao-item",
+      "repeatable": true
+    },
+    "Dimensoes": {
+      "type": "component",
+      "component": "produto.especificacao-item",
+      "repeatable": true
+    },
+    "Foto_fixa_acordeao": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Itens_acordeao": {
+      "type": "component",
+      "component": "produto.item-acordeao",
+      "repeatable": true
+    },
+    "Video_arquivo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "Video_url": {
+      "type": "string"
+    },
+    "Thumbnail_video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

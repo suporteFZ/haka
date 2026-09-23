@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_secoes_redes",
+  "info": {
+    "displayName": "Redes",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "Icone": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Link_rede": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_elementos_caracteristica_produtos",
+  "info": {
+    "displayName": "Caracteristica Produto",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "Texto": {
+      "type": "text"
+    },
+    "Imagem": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

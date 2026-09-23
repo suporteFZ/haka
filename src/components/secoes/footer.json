@@ -1,0 +1,68 @@
+{
+  "collectionName": "components_secoes_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "layout",
+    "description": "Componente principal do rodapé (inclui CTA e Footer)"
+  },
+  "options": {},
+  "attributes": {
+    "cta_imagem_fundo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "cta_titulo": {
+      "type": "string"
+    },
+    "cta_descricao": {
+      "type": "text"
+    },
+    "cta_texto_botao": {
+      "type": "string"
+    },
+    "cta_link_botao": {
+      "type": "string"
+    },
+    "descricao_curta": {
+      "type": "text"
+    },
+    "menu_links": {
+      "type": "component",
+      "component": "menu.menu",
+      "repeatable": true
+    },
+    "redes_sociais": {
+      "type": "component",
+      "component": "secoes.redes",
+      "repeatable": true
+    },
+    "texto_copyright": {
+      "type": "string",
+      "default": "© 2026 HAKA Mobiliário Corporativo. Todos os direitos reservados."
+    },
+    "cidade": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "telefone": {
+      "type": "string"
+    },
+    "logo_fz": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_produto_item_acordeaos",
+  "info": {
+    "displayName": "Item de Acordeão",
+    "icon": "layer",
+    "description": "Item expansível de título e texto"
+  },
+  "options": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "required": true
+    },
+    "Texto": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

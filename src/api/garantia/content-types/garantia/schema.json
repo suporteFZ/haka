@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "garantias",
+  "info": {
+    "singularName": "garantia",
+    "pluralName": "garantias",
+    "displayName": "Garantia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Descricao": {
+      "type": "string"
+    },
+    "Preco_adicional": {
+      "type": "decimal",
+      "default": 0
+    },
+    "produtos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::produto.produto",
+      "inversedBy": "garantias"
+    }
+  }
+}

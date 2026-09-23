@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categorias",
+  "info": {
+    "singularName": "categoria",
+    "pluralName": "categorias",
+    "displayName": "Categoria"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "Nome"
+    },
+    "Nome": {
+      "type": "string"
+    },
+    "Texto": {
+      "type": "text"
+    },
+    "Banner_desktop": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Banner_mobile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categoria_pai": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categoria.categoria",
+      "inversedBy": "subcategorias"
+    },
+    "subcategorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria",
+      "mappedBy": "categoria_pai"
+    },
+    "Logo_marca": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Texto_catalogo": {
+      "type": "text"
+    }
+  }
+}

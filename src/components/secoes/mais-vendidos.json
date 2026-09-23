@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_secoes_mais_vendidos",
+  "info": {
+    "displayName": "Mais Vendidos",
+    "icon": "shoppingCart",
+    "description": "Seção de produtos mais vendidos com cards e efeito hover"
+  },
+  "options": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "default": "Mais vendidas"
+    },
+    "produtos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::produto.produto"
+    }
+  }
+}

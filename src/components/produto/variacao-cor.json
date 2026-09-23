@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_produto_variacao_cors",
+  "info": {
+    "displayName": "Variação de Cor",
+    "icon": "palette",
+    "description": "Variação de cor com galeria de fotos e estoque"
+  },
+  "options": {},
+  "attributes": {
+    "Nome_cor": {
+      "type": "string",
+      "required": true
+    },
+    "Cor_hex": {
+      "type": "string"
+    },
+    "Miniatura": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Galeria": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Preco_diferenciado": {
+      "type": "decimal"
+    },
+    "Estoque": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

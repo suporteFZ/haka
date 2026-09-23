@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_menu_menus",
+  "info": {
+    "displayName": "Item de Menu (Header/Footer)",
+    "icon": "bulletList",
+    "description": "Pode ser um link simples ou um Mega Menu"
+  },
+  "options": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string",
+      "description": "Se não for Mega Menu, insira o link aqui (ex: /showroom)"
+    },
+    "isMegaMenu": {
+      "type": "boolean",
+      "default": false
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria"
+    },
+    "marcas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::marca.marca"
+    },
+    "links_rapidos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.link"
+    },
+    "produtos_destaque": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::produto.produto"
+    }
+  },
+  "config": {}
+}

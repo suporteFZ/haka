@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "marcas",
+  "info": {
+    "singularName": "marca",
+    "pluralName": "marcas",
+    "displayName": "Marca"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Nome"
+    }
+  }
+}

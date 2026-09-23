@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_secoes_videos_curtos",
+  "info": {
+    "displayName": "Videos Curtos",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "required": false
+    },
+    "Subtitulo": {
+      "type": "text"
+    },
+    "Videos": {
+      "type": "component",
+      "component": "secoes.video-curto-item",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_secoes_categoria_em_destaques",
+  "info": {
+    "displayName": "Categoria em destaque",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string"
+    },
+    "Subtitulo": {
+      "type": "text"
+    },
+    "Categoria": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_secoes_video_curto_items",
+  "info": {
+    "displayName": "Video Curto Item",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "Legenda": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_homes",
+  "info": {
+    "singularName": "pagina-home",
+    "pluralName": "pagina-homes",
+    "displayName": "Pagina Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Banner": {
+      "type": "component",
+      "component": "secoes.banner-principal",
+      "repeatable": false
+    },
+    "Categoria": {
+      "type": "component",
+      "component": "secoes.categoria-em-destaque",
+      "repeatable": false
+    },
+    "Videos_curtos": {
+      "type": "component",
+      "component": "secoes.videos-curtos",
+      "repeatable": false
+    },
+    "Feedbacks": {
+      "type": "component",
+      "component": "secoes.feedbacks",
+      "repeatable": false
+    },
+    "Produto_destaque": {
+      "type": "component",
+      "component": "secoes.produto-destaque",
+      "repeatable": false
+    },
+    "Mais_vendidos": {
+      "type": "component",
+      "component": "secoes.mais-vendidos",
+      "repeatable": false
+    },
+    "Catalogo": {
+      "type": "component",
+      "component": "secoes.catalogo",
+      "repeatable": false
+    }
+  }
+}

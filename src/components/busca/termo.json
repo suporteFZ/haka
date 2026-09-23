@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_busca_termos",
+  "info": {
+    "displayName": "Termo de Busca",
+    "icon": "search"
+  },
+  "options": {},
+  "attributes": {
+    "Termo": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string",
+      "description": "Ex: /marca/cavaletti (opcional)"
+    }
+  }
+}

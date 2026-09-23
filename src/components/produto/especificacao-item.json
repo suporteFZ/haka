@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_produto_especificacao_items",
+  "info": {
+    "displayName": "Item de Especificação",
+    "icon": "bulletList",
+    "description": "Item chave e valor para tabelas técnicas"
+  },
+  "options": {},
+  "attributes": {
+    "Chave": {
+      "type": "string",
+      "required": true
+    },
+    "Valor": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
