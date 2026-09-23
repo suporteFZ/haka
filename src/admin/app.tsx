@@ -11,13 +11,7 @@ export default {
   bootstrap(app: StrapiApp) {
     if (typeof window !== 'undefined') {
       try {
-        const stored = window.localStorage.getItem('STRAPI_GUIDED_TOUR');
-        if (stored) {
-          const parsed = JSON.parse(stored);
-          if (parsed && typeof parsed.tours === 'object' && Object.keys(parsed.tours).length === 0) {
-            window.localStorage.removeItem('STRAPI_GUIDED_TOUR');
-          }
-        }
+        window.localStorage.removeItem('STRAPI_GUIDED_TOUR');
       } catch (e) {}
     }
   },

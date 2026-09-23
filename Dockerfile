@@ -14,6 +14,7 @@ ENV PATH=/opt/node_modules/.bin:$PATH
 
 WORKDIR /opt/app
 COPY . .
+RUN ln -s /opt/node_modules /opt/app/node_modules
 RUN npm run build
 
 # Stage 2: Production runtime
@@ -28,6 +29,7 @@ WORKDIR /opt/
 COPY --from=build /opt/node_modules ./node_modules
 WORKDIR /opt/app
 COPY --from=build /opt/app ./
+RUN ln -s /opt/node_modules /opt/app/node_modules
 ENV PATH=/opt/node_modules/.bin:$PATH
 
 EXPOSE 1337
