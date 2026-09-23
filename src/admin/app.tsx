@@ -6,11 +6,18 @@ export default {
       'pt-BR',
       'pt',
     ],
+    tutorials: false,
   },
   bootstrap(app: StrapiApp) {
     if (typeof window !== 'undefined') {
       try {
-        window.localStorage.setItem('STRAPI_GUIDED_TOUR', JSON.stringify({ enabled: false, tours: {}, completedActions: [] }));
+        const stored = window.localStorage.getItem('STRAPI_GUIDED_TOUR');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed && typeof parsed.tours === 'object' && Object.keys(parsed.tours).length === 0) {
+            window.localStorage.removeItem('STRAPI_GUIDED_TOUR');
+          }
+        }
       } catch (e) {}
     }
   },
