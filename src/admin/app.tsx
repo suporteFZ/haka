@@ -6,9 +6,12 @@ export default {
       'pt-BR',
       'pt',
     ],
-    tutorials: false,
   },
   bootstrap(app: StrapiApp) {
-    console.log(app);
+    if (typeof window !== 'undefined') {
+      try {
+        window.localStorage.setItem('STRAPI_GUIDED_TOUR', JSON.stringify({ enabled: false, tours: {}, completedActions: [] }));
+      } catch (e) {}
+    }
   },
 };
