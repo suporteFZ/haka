@@ -3,6 +3,8 @@ FROM node:20-alpine AS build
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git > /dev/null 2>&1
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
+ARG PUBLIC_URL=https://haka-admin.fzcommerce.com.br
+ENV PUBLIC_URL=${PUBLIC_URL}
 
 WORKDIR /opt/
 COPY package.json package-lock.json ./
@@ -19,6 +21,8 @@ FROM node:20-alpine
 RUN apk add --no-cache vips-dev
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
+ARG PUBLIC_URL=https://haka-admin.fzcommerce.com.br
+ENV PUBLIC_URL=${PUBLIC_URL}
 
 WORKDIR /opt/
 COPY --from=build /opt/node_modules ./node_modules
