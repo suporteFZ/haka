@@ -10,7 +10,6 @@ export default (config: UserConfig) => {
         'styled-components',
         'use-context-selector',
         '@strapi/admin',
-        '@strapi/strapi',
       ],
     },
   });
