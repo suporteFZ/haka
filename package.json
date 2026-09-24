@@ -27,7 +27,8 @@
     "use-context-selector": "1.4.4"
   },
   "overrides": {
-    "use-context-selector": "1.4.4"
+    "use-context-selector": "1.4.4",
+    "@strapi/admin": "$@strapi/strapi"
   },
   "devDependencies": {
     "@types/node": "^20",

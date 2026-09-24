@@ -9,6 +9,7 @@ export default (config: UserConfig) => {
         'styled-components',
         'react-router-dom',
         'use-context-selector',
+        '@strapi/admin',
       ],
     },
   });
