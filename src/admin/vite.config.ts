@@ -3,7 +3,13 @@ import { mergeConfig, type UserConfig } from 'vite';
 export default (config: UserConfig) => {
   return mergeConfig(config, {
     resolve: {
-      dedupe: ['react', 'react-dom', 'styled-components', 'react-router-dom'],
+      dedupe: [
+        'react',
+        'react-dom',
+        'styled-components',
+        'react-router-dom',
+        'use-context-selector',
+      ],
     },
   });
 };
