@@ -10,8 +10,8 @@ const config: Core.Config.Middlewares = [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'https://market-assets.strapi.io'],
-          'media-src': ["'self'", 'data:', 'blob:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'https://market-assets.strapi.io', '*.r2.dev'],
+          'media-src': ["'self'", 'data:', 'blob:', '*.r2.dev'],
           'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
           'frame-src': ["'self'", 'https:'],
         },

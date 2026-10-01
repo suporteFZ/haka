@@ -37,6 +37,23 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
         allowedTypes: allowedMediaTypes,
         deniedTypes: deniedExecutableTypes,
       },
+      provider: env('CF_R2_ACCESS_KEY_ID') ? 'aws-s3' : 'local',
+      providerOptions: env('CF_R2_ACCESS_KEY_ID')
+        ? {
+            baseUrl: env('CF_R2_PUBLIC_URL'),
+            s3Options: {
+              credentials: {
+                accessKeyId: env('CF_R2_ACCESS_KEY_ID'),
+                secretAccessKey: env('CF_R2_ACCESS_SECRET'),
+              },
+              region: 'auto',
+              endpoint: env('CF_R2_ENDPOINT'),
+              params: {
+                Bucket: env('CF_R2_BUCKET'),
+              },
+            },
+          }
+        : undefined,
     },
   },
 });

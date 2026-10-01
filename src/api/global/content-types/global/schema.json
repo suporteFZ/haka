@@ -60,6 +60,9 @@
       "type": "component",
       "component": "menu.link",
       "repeatable": true
+    },
+    "Whatsapp_numero": {
+      "type": "string"
     }
   }
 }
