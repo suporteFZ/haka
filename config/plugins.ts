@@ -50,6 +50,7 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
               endpoint: env('CF_R2_ENDPOINT'),
               params: {
                 Bucket: env('CF_R2_BUCKET'),
+                ACL: undefined,
               },
             },
           }
