@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_secoes_chamada_projetos",
+  "info": {
+    "displayName": "Chamada Projetos",
+    "icon": "briefcase",
+    "description": "Seção da Home com chamada para o portfólio de projetos"
+  },
+  "options": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "default": "Design que respeita a arquitetura do corpo"
+    },
+    "Descricao": {
+      "type": "text",
+      "default": "Criamos ecossistemas corporativos integrados. Nossos projetos unem ergonomia de ponta, estética atemporal e soluções que otimizam o bem-estar diário de equipes de alta performance."
+    },
+    "Metrica_1_valor": {
+      "type": "string",
+      "default": "98%"
+    },
+    "Metrica_1_label": {
+      "type": "string",
+      "default": "Satisfação Ergonômica"
+    },
+    "Metrica_2_valor": {
+      "type": "string",
+      "default": "50k+"
+    },
+    "Metrica_2_label": {
+      "type": "string",
+      "default": "M² Projetados"
+    },
+    "Texto_botao": {
+      "type": "string",
+      "default": "Ver Nosso Portfólio"
+    },
+    "Link_botao": {
+      "type": "string",
+      "default": "/projetos"
+    },
+    "projetos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::projeto.projeto"
+    }
+  }
+}

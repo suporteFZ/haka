@@ -1,0 +1,119 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_showrooms",
+  "info": {
+    "singularName": "pagina-showroom",
+    "pluralName": "pagina-showrooms",
+    "displayName": "Pagina Showroom",
+    "description": "Configurações da página de Showroom, banners, métricas e sequência de imagens"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Hero_tag": {
+      "type": "string",
+      "default": "PORTFÓLIO HAKA"
+    },
+    "Hero_titulo": {
+      "type": "string",
+      "default": "Nosso Showroom"
+    },
+    "Hero_descricao": {
+      "type": "text",
+      "default": "Conheça o espaço onde design, ergonomia e conforto se encontram. Uma experiência sensorial para planejar seu próximo ambiente de trabalho."
+    },
+    "Hero_imagem_banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Imersiva_tag": {
+      "type": "string",
+      "default": "EXPERIÊNCIA IMERSIVA"
+    },
+    "Imersiva_titulo": {
+      "type": "string",
+      "default": "Um espaço pensado para você vivenciar nossos produtos de perto."
+    },
+    "Imersiva_descricao": {
+      "type": "text",
+      "default": "Cada ambiente foi cuidadosamente projetado para inspirar e mostrar as possibilidades."
+    },
+    "Imersiva_imagem": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Imersiva_metricas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elementos.item-entregavel"
+    },
+    "Sequencia_titulo": {
+      "type": "string",
+      "default": "Clique para caminhar virtualmente"
+    },
+    "Sequencia_subtitulo": {
+      "type": "text",
+      "default": "Role a página para explorar cada detalhe dos nossos ambientes integrados e soluções ergonômicas."
+    },
+    "Sequencia_thumb": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Sequencia_imagens": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Sequencia_video_desktop": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos",
+        "files"
+      ]
+    },
+    "Sequencia_video_mobile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos",
+        "files"
+      ]
+    },
+    "Cta_titulo": {
+      "type": "string",
+      "default": "Quer um projeto personalizado para o seu espaço?"
+    },
+    "Cta_descricao": {
+      "type": "text",
+      "default": "Descubra como otimizar o conforto e a produtividade da sua equipe. Entre em contato com nossos especialistas e receba uma proposta corporativa sob medida."
+    },
+    "Cta_botao_texto": {
+      "type": "string",
+      "default": "Solicitar Orçamento"
+    },
+    "Cta_botao_link": {
+      "type": "string",
+      "default": "https://wa.me/5545999999999"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_elementos_depoimentos",
+  "info": {
+    "displayName": "Depoimento",
+    "description": "Depoimento de cliente com texto, autor e cargo",
+    "icon": "quote-right"
+  },
+  "options": {},
+  "attributes": {
+    "Texto": {
+      "type": "text"
+    },
+    "Autor": {
+      "type": "string"
+    },
+    "Cargo": {
+      "type": "string"
+    }
+  }
+}

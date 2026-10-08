@@ -31,6 +31,11 @@
       "component": "secoes.feedbacks",
       "repeatable": false
     },
+    "Projetos": {
+      "type": "component",
+      "component": "secoes.chamada-projetos",
+      "repeatable": false
+    },
     "Produto_destaque": {
       "type": "component",
       "component": "secoes.produto-destaque",

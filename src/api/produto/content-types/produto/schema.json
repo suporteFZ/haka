@@ -23,13 +23,6 @@
     "Subtitulo": {
       "type": "text"
     },
-    "Preco": {
-      "type": "decimal",
-      "required": false
-    },
-    "Preco_promocional": {
-      "type": "decimal"
-    },
     "Estoque": {
       "type": "integer",
       "default": 0

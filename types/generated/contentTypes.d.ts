@@ -480,6 +480,41 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCategoriaProjetoCategoriaProjeto
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'categoria_projetos';
+  info: {
+    description: 'Categorias e tags para filtragem de projetos corporativos';
+    displayName: 'Categoria de Projetos';
+    pluralName: 'categoria-projetos';
+    singularName: 'categoria-projeto';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::categoria-projeto.categoria-projeto'
+    > &
+      Schema.Attribute.Private;
+    Nome: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Ordem: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    projetos: Schema.Attribute.Relation<'manyToMany', 'api::projeto.projeto'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Nome'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
   collectionName: 'categorias';
   info: {
@@ -685,11 +720,114 @@ export interface ApiPaginaHomePaginaHome extends Struct.SingleTypeSchema {
       'secoes.produto-destaque',
       false
     >;
+    Projetos: Schema.Attribute.Component<'secoes.chamada-projetos', false>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Videos_curtos: Schema.Attribute.Component<'secoes.videos-curtos', false>;
+  };
+}
+
+export interface ApiPaginaProjetoPaginaProjeto extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_projetos';
+  info: {
+    description: 'Configura\u00E7\u00F5es da p\u00E1gina de projetos e hero banner';
+    displayName: 'Pagina Projetos';
+    pluralName: 'pagina-projetos';
+    singularName: 'pagina-projeto';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Descricao: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Ambientes completos que transformam a rotina de trabalho em experi\u00EAncia de conforto, sofistica\u00E7\u00E3o e produtividade.'>;
+    Imagem_banner: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-projeto.pagina-projeto'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Subtitulo_secao: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Navegue e conhe\u00E7a os detalhes dos principais projetos entregues pela Haka Cadeiras'>;
+    Tag: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'PORTF\u00D3LIO HAKA'>;
+    Titulo: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Projetos Entregues'>;
+    Titulo_secao: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Ambientes com Identidade e Ergonomia'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaShowroomPaginaShowroom
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_showrooms';
+  info: {
+    description: 'Configura\u00E7\u00F5es da p\u00E1gina de Showroom, banners, m\u00E9tricas e sequ\u00EAncia de imagens';
+    displayName: 'Pagina Showroom';
+    pluralName: 'pagina-showrooms';
+    singularName: 'pagina-showroom';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Cta_botao_link: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'https://wa.me/5545999999999'>;
+    Cta_botao_texto: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Solicitar Or\u00E7amento'>;
+    Cta_descricao: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Descubra como otimizar o conforto e a produtividade da sua equipe. Entre em contato com nossos especialistas e receba uma proposta corporativa sob medida.'>;
+    Cta_titulo: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Quer um projeto personalizado para o seu espa\u00E7o?'>;
+    Hero_descricao: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Conhe\u00E7a o espa\u00E7o onde design, ergonomia e conforto se encontram. Uma experi\u00EAncia sensorial para planejar seu pr\u00F3ximo ambiente de trabalho.'>;
+    Hero_imagem_banner: Schema.Attribute.Media<'images'>;
+    Hero_tag: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'PORTF\u00D3LIO HAKA'>;
+    Hero_titulo: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Nosso Showroom'>;
+    Imersiva_descricao: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Cada ambiente foi cuidadosamente projetado para inspirar e mostrar as possibilidades.'>;
+    Imersiva_imagem: Schema.Attribute.Media<'images'>;
+    Imersiva_metricas: Schema.Attribute.Component<
+      'elementos.item-entregavel',
+      true
+    >;
+    Imersiva_tag: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'EXPERI\u00CANCIA IMERSIVA'>;
+    Imersiva_titulo: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Um espa\u00E7o pensado para voc\u00EA vivenciar nossos produtos de perto.'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-showroom.pagina-showroom'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Sequencia_imagens: Schema.Attribute.Media<'images', true>;
+    Sequencia_subtitulo: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Role a p\u00E1gina para explorar cada detalhe dos nossos ambientes integrados e solu\u00E7\u00F5es ergon\u00F4micas.'>;
+    Sequencia_thumb: Schema.Attribute.Media<'images'>;
+    Sequencia_titulo: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Clique para caminhar virtualmente'>;
+    Sequencia_video_desktop: Schema.Attribute.Media<'videos' | 'files'>;
+    Sequencia_video_mobile: Schema.Attribute.Media<'videos' | 'files'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -741,8 +879,6 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     Nome: Schema.Attribute.String & Schema.Attribute.Required;
     Parcelas: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<10>;
     Peso_maximo: Schema.Attribute.String;
-    Preco: Schema.Attribute.Decimal;
-    Preco_promocional: Schema.Attribute.Decimal;
     produtos_compre_junto: Schema.Attribute.Relation<
       'manyToMany',
       'api::produto.produto'
@@ -760,6 +896,51 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     Video_arquivo: Schema.Attribute.Media<'videos'>;
     Video_url: Schema.Attribute.String;
     Visivel: Schema.Attribute.Boolean;
+  };
+}
+
+export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
+  collectionName: 'projetos';
+  info: {
+    description: 'Portf\u00F3lio de projetos corporativos, cases e artigos';
+    displayName: 'Projeto';
+    pluralName: 'projetos';
+    singularName: 'projeto';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categorias: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::categoria-projeto.categoria-projeto'
+    >;
+    Cliente: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Data_projeto: Schema.Attribute.Date;
+    Depoimento: Schema.Attribute.Component<'elementos.depoimento', false>;
+    Desafio: Schema.Attribute.Text;
+    Descricao_curta: Schema.Attribute.Text & Schema.Attribute.Required;
+    Destaque_home: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    Galeria: Schema.Attribute.Media<'images', true>;
+    Imagem_capa: Schema.Attribute.Media<'images'>;
+    Itens: Schema.Attribute.Component<'elementos.item-entregavel', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::projeto.projeto'
+    > &
+      Schema.Attribute.Private;
+    Logo_cliente: Schema.Attribute.Media<'images'>;
+    Ordem: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Titulo'> & Schema.Attribute.Required;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1275,13 +1456,17 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::categoria-projeto.categoria-projeto': ApiCategoriaProjetoCategoriaProjeto;
       'api::categoria.categoria': ApiCategoriaCategoria;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::garantia.garantia': ApiGarantiaGarantia;
       'api::global.global': ApiGlobalGlobal;
       'api::marca.marca': ApiMarcaMarca;
       'api::pagina-home.pagina-home': ApiPaginaHomePaginaHome;
+      'api::pagina-projeto.pagina-projeto': ApiPaginaProjetoPaginaProjeto;
+      'api::pagina-showroom.pagina-showroom': ApiPaginaShowroomPaginaShowroom;
       'api::produto.produto': ApiProdutoProduto;
+      'api::projeto.projeto': ApiProjetoProjeto;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

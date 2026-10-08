@@ -30,6 +30,12 @@
         "images"
       ]
     },
+    "Preco": {
+      "type": "decimal"
+    },
+    "Preco_promocional": {
+      "type": "decimal"
+    },
     "Preco_diferenciado": {
       "type": "decimal"
     },

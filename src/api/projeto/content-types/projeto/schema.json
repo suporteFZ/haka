@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projetos",
+  "info": {
+    "singularName": "projeto",
+    "pluralName": "projetos",
+    "displayName": "Projeto",
+    "description": "Portfólio de projetos corporativos, cases e artigos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Titulo",
+      "required": true
+    },
+    "Cliente": {
+      "type": "string",
+      "required": true
+    },
+    "Logo_cliente": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Imagem_capa": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Descricao_curta": {
+      "type": "text",
+      "required": true
+    },
+    "Desafio": {
+      "type": "text"
+    },
+    "Itens": {
+      "type": "component",
+      "component": "elementos.item-entregavel",
+      "repeatable": true
+    },
+    "Depoimento": {
+      "type": "component",
+      "component": "elementos.depoimento",
+      "repeatable": false
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::categoria-projeto.categoria-projeto",
+      "inversedBy": "projetos"
+    },
+    "Galeria": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Destaque_home": {
+      "type": "boolean",
+      "default": false
+    },
+    "Data_projeto": {
+      "type": "date"
+    },
+    "Ordem": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

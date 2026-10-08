@@ -25,6 +25,33 @@ export interface ElementosCaracteristicaProduto extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementosDepoimento extends Struct.ComponentSchema {
+  collectionName: 'components_elementos_depoimentos';
+  info: {
+    description: 'Depoimento de cliente com texto, autor e cargo';
+    displayName: 'Depoimento';
+    icon: 'quote-right';
+  };
+  attributes: {
+    Autor: Schema.Attribute.String;
+    Cargo: Schema.Attribute.String;
+    Texto: Schema.Attribute.Text;
+  };
+}
+
+export interface ElementosItemEntregavel extends Struct.ComponentSchema {
+  collectionName: 'components_elementos_item_entregaveis';
+  info: {
+    description: 'Item entreg\u00E1vel com \u00EDcone, t\u00EDtulo e subt\u00EDtulo';
+    displayName: 'Item Entreg\u00E1vel';
+  };
+  attributes: {
+    Icone: Schema.Attribute.Media<'images'>;
+    Subtitulo: Schema.Attribute.String;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface MenuLink extends Struct.ComponentSchema {
   collectionName: 'components_menu_links';
   info: {
@@ -114,7 +141,9 @@ export interface ProdutoVariacaoCor extends Struct.ComponentSchema {
     Galeria: Schema.Attribute.Media<'images', true>;
     Miniatura: Schema.Attribute.Media<'images'>;
     Nome_cor: Schema.Attribute.String & Schema.Attribute.Required;
+    Preco: Schema.Attribute.Decimal;
     Preco_diferenciado: Schema.Attribute.Decimal;
+    Preco_promocional: Schema.Attribute.Decimal;
   };
 }
 
@@ -163,6 +192,34 @@ export interface SecoesCategoriaEmDestaque extends Struct.ComponentSchema {
     >;
     Subtitulo: Schema.Attribute.Text;
     Titulo: Schema.Attribute.String;
+  };
+}
+
+export interface SecoesChamadaProjetos extends Struct.ComponentSchema {
+  collectionName: 'components_secoes_chamada_projetos';
+  info: {
+    description: 'Se\u00E7\u00E3o da Home com chamada para o portf\u00F3lio de projetos';
+    displayName: 'Chamada Projetos';
+    icon: 'briefcase';
+  };
+  attributes: {
+    Descricao: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Criamos ecossistemas corporativos integrados. Nossos projetos unem ergonomia de ponta, est\u00E9tica atemporal e solu\u00E7\u00F5es que otimizam o bem-estar di\u00E1rio de equipes de alta performance.'>;
+    Link_botao: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'/projetos'>;
+    Metrica_1_label: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Satisfa\u00E7\u00E3o Ergon\u00F4mica'>;
+    Metrica_1_valor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'98%'>;
+    Metrica_2_label: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'M\u00B2 Projetados'>;
+    Metrica_2_valor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'50k+'>;
+    projetos: Schema.Attribute.Relation<'oneToMany', 'api::projeto.projeto'>;
+    Texto_botao: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Ver Nosso Portf\u00F3lio'>;
+    Titulo: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Design que respeita a arquitetura do corpo'>;
   };
 }
 
@@ -280,6 +337,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'busca.termo': BuscaTermo;
       'elementos.caracteristica-produto': ElementosCaracteristicaProduto;
+      'elementos.depoimento': ElementosDepoimento;
+      'elementos.item-entregavel': ElementosItemEntregavel;
       'menu.link': MenuLink;
       'menu.menu': MenuMenu;
       'menu.mobile-item': MenuMobileItem;
@@ -289,6 +348,7 @@ declare module '@strapi/strapi' {
       'secoes.banner-principal': SecoesBannerPrincipal;
       'secoes.catalogo': SecoesCatalogo;
       'secoes.categoria-em-destaque': SecoesCategoriaEmDestaque;
+      'secoes.chamada-projetos': SecoesChamadaProjetos;
       'secoes.feedbacks': SecoesFeedbacks;
       'secoes.footer': SecoesFooter;
       'secoes.mais-vendidos': SecoesMaisVendidos;

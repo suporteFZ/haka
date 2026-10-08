@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_elementos_item_entregaveis",
+  "info": {
+    "displayName": "Item Entregável",
+    "description": "Item entregável com ícone, título e subtítulo"
+  },
+  "options": {},
+  "attributes": {
+    "Icone": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Titulo": {
+      "type": "string",
+      "required": true
+    },
+    "Subtitulo": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_projetos",
+  "info": {
+    "singularName": "pagina-projeto",
+    "pluralName": "pagina-projetos",
+    "displayName": "Pagina Projetos",
+    "description": "Configurações da página de projetos e hero banner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Tag": {
+      "type": "string",
+      "default": "PORTFÓLIO HAKA"
+    },
+    "Titulo": {
+      "type": "string",
+      "default": "Projetos Entregues"
+    },
+    "Descricao": {
+      "type": "text",
+      "default": "Ambientes completos que transformam a rotina de trabalho em experiência de conforto, sofisticação e produtividade."
+    },
+    "Imagem_banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Titulo_secao": {
+      "type": "string",
+      "default": "Ambientes com Identidade e Ergonomia"
+    },
+    "Subtitulo_secao": {
+      "type": "string",
+      "default": "Navegue e conheça os detalhes dos principais projetos entregues pela Haka Cadeiras"
+    }
+  }
+}
