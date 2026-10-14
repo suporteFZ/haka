@@ -81,22 +81,12 @@
         "images"
       ]
     },
-    "Sequencia_video_desktop": {
+    "Sequencia_imagens_mobile": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
-        "videos",
-        "files"
-      ]
-    },
-    "Sequencia_video_mobile": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "videos",
-        "files"
+        "images"
       ]
     },
     "Cta_titulo": {

@@ -818,13 +818,12 @@ export interface ApiPaginaShowroomPaginaShowroom
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Sequencia_imagens: Schema.Attribute.Media<'images', true>;
+    Sequencia_imagens_mobile: Schema.Attribute.Media<'images', true>;
     Sequencia_subtitulo: Schema.Attribute.Text &
       Schema.Attribute.DefaultTo<'Role a p\u00E1gina para explorar cada detalhe dos nossos ambientes integrados e solu\u00E7\u00F5es ergon\u00F4micas.'>;
     Sequencia_thumb: Schema.Attribute.Media<'images'>;
     Sequencia_titulo: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Clique para caminhar virtualmente'>;
-    Sequencia_video_desktop: Schema.Attribute.Media<'videos' | 'files'>;
-    Sequencia_video_mobile: Schema.Attribute.Media<'videos' | 'files'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
