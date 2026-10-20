@@ -190,7 +190,6 @@ export interface ProdutoOpcaoVariacao extends Struct.ComponentSchema {
   attributes: {
     Cor_hex: Schema.Attribute.String;
     Foto: Schema.Attribute.Media<'images'>;
-    Foto_destaque: Schema.Attribute.Media<'images'>;
     Galeria: Schema.Attribute.Media<'images', true>;
     Nome: Schema.Attribute.String & Schema.Attribute.Required;
     Preco: Schema.Attribute.Decimal;

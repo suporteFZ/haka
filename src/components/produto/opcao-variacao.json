@@ -32,14 +32,6 @@
     "Cor_hex": {
       "type": "string"
     },
-    "Foto_destaque": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "Galeria": {
       "type": "media",
       "multiple": true,
