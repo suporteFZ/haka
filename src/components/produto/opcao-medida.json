@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_produto_opcao_medidas",
+  "info": {
+    "displayName": "Opção de Medida",
+    "icon": "expand",
+    "description": "Opção de medida/dimensão para produtos como mesas e escrivaninhas"
+  },
+  "options": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "required": true
+    },
+    "Descricao": {
+      "type": "string"
+    },
+    "Preco": {
+      "type": "decimal"
+    },
+    "Preco_promocional": {
+      "type": "decimal"
+    },
+    "Preco_adicional": {
+      "type": "decimal",
+      "default": 0
+    },
+    "Estoque": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

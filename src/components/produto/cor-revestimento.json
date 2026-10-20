@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_produto_cor_revestimentos",
+  "info": {
+    "displayName": "Cor do Revestimento",
+    "icon": "palette",
+    "description": "Cor do revestimento com amostra, galeria de fotos e preço"
+  },
+  "options": {},
+  "attributes": {
+    "Nome_cor": {
+      "type": "string",
+      "required": true
+    },
+    "Cor_hex": {
+      "type": "string"
+    },
+    "Miniatura": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Galeria": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Preco": {
+      "type": "decimal"
+    },
+    "Preco_promocional": {
+      "type": "decimal"
+    },
+    "Preco_adicional": {
+      "type": "decimal",
+      "default": 0
+    },
+    "Preco_diferenciado": {
+      "type": "decimal"
+    },
+    "Estoque": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_produto_revestimentos",
+  "info": {
+    "displayName": "Revestimento",
+    "icon": "layer",
+    "description": "Tipo de revestimento (ex: Poliéster, Couro, Mesh) com suas respectivas cores"
+  },
+  "options": {},
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Descricao": {
+      "type": "string"
+    },
+    "Foto_amostra": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+
+    "Cores": {
+      "type": "component",
+      "repeatable": true,
+      "component": "produto.cor-revestimento",
+      "required": true
+    }
+  }
+}

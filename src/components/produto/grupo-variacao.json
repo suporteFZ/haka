@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_produto_grupo_variacaos",
+  "info": {
+    "displayName": "Grupo de Variação (Pai)",
+    "icon": "layer",
+    "description": "Grupo pai de variações (ex: Estrutura do Encosto, Bases, etc.)"
+  },
+  "options": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string",
+      "required": true
+    },
+    "Obrigatorio": {
+      "type": "boolean",
+      "default": true
+    },
+    "Opcoes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "produto.opcao-variacao",
+      "required": true
+    }
+  }
+}

@@ -1,17 +1,20 @@
 {
   "collectionName": "components_produto_variacao_cors",
   "info": {
-    "displayName": "Variação de Cor",
+    "displayName": "Variação de Produto",
     "icon": "palette",
-    "description": "Variação de cor com galeria de fotos e estoque"
+    "description": "Variação com cor, tamanho, fotos, preço e estoque"
   },
   "options": {},
   "attributes": {
     "Nome_cor": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "Cor_hex": {
+      "type": "string"
+    },
+    "Tamanho": {
       "type": "string"
     },
     "Miniatura": {
@@ -22,6 +25,7 @@
         "images"
       ]
     },
+
     "Galeria": {
       "type": "media",
       "multiple": true,

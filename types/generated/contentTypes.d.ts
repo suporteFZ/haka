@@ -858,10 +858,12 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     Estoque: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     Foto_fixa_acordeao: Schema.Attribute.Media<'images'>;
     Foto_mais_vendidos: Schema.Attribute.Media<'images'>;
+    Galeria: Schema.Attribute.Media<'images', true>;
     garantias: Schema.Attribute.Relation<
       'manyToMany',
       'api::garantia.garantia'
     >;
+    Grupos_variacao: Schema.Attribute.Component<'produto.grupo-variacao', true>;
     Imagem_destaque: Schema.Attribute.Media<'images'>;
     Imagem_recursos: Schema.Attribute.Media<'images'>;
     Imagem_recursos_mobile: Schema.Attribute.Media<'images'>;
@@ -876,13 +878,17 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
     marca: Schema.Attribute.Relation<'manyToOne', 'api::marca.marca'>;
     Medidas: Schema.Attribute.Component<'produto.especificacao-item', true>;
     Nome: Schema.Attribute.String & Schema.Attribute.Required;
+    Opcoes_medida: Schema.Attribute.Component<'produto.opcao-medida', true>;
     Parcelas: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<10>;
     Peso_maximo: Schema.Attribute.String;
+    Preco: Schema.Attribute.Decimal;
+    Preco_promocional: Schema.Attribute.Decimal;
     produtos_compre_junto: Schema.Attribute.Relation<
       'manyToMany',
       'api::produto.produto'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    Revestimentos: Schema.Attribute.Component<'produto.revestimento', true>;
     slug: Schema.Attribute.UID<'Nome'> & Schema.Attribute.Required;
     Subtitulo: Schema.Attribute.Text;
     Texto: Schema.Attribute.Text;

@@ -102,6 +102,26 @@ export interface MenuMobileItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ProdutoCorRevestimento extends Struct.ComponentSchema {
+  collectionName: 'components_produto_cor_revestimentos';
+  info: {
+    description: 'Cor do revestimento com amostra, galeria de fotos e pre\u00E7o';
+    displayName: 'Cor do Revestimento';
+    icon: 'palette';
+  };
+  attributes: {
+    Cor_hex: Schema.Attribute.String;
+    Estoque: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    Galeria: Schema.Attribute.Media<'images', true>;
+    Miniatura: Schema.Attribute.Media<'images'>;
+    Nome_cor: Schema.Attribute.String & Schema.Attribute.Required;
+    Preco: Schema.Attribute.Decimal;
+    Preco_adicional: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0>;
+    Preco_diferenciado: Schema.Attribute.Decimal;
+    Preco_promocional: Schema.Attribute.Decimal;
+  };
+}
+
 export interface ProdutoEspecificacaoItem extends Struct.ComponentSchema {
   collectionName: 'components_produto_especificacao_items';
   info: {
@@ -112,6 +132,21 @@ export interface ProdutoEspecificacaoItem extends Struct.ComponentSchema {
   attributes: {
     Chave: Schema.Attribute.String & Schema.Attribute.Required;
     Valor: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProdutoGrupoVariacao extends Struct.ComponentSchema {
+  collectionName: 'components_produto_grupo_variacaos';
+  info: {
+    description: 'Grupo pai de varia\u00E7\u00F5es (ex: Estrutura do Encosto, Bases, etc.)';
+    displayName: 'Grupo de Varia\u00E7\u00E3o (Pai)';
+    icon: 'layer';
+  };
+  attributes: {
+    Obrigatorio: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    Opcoes: Schema.Attribute.Component<'produto.opcao-variacao', true> &
+      Schema.Attribute.Required;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -128,11 +163,63 @@ export interface ProdutoItemAcordeao extends Struct.ComponentSchema {
   };
 }
 
+export interface ProdutoOpcaoMedida extends Struct.ComponentSchema {
+  collectionName: 'components_produto_opcao_medidas';
+  info: {
+    description: 'Op\u00E7\u00E3o de medida/dimens\u00E3o para produtos como mesas e escrivaninhas';
+    displayName: 'Op\u00E7\u00E3o de Medida';
+    icon: 'expand';
+  };
+  attributes: {
+    Descricao: Schema.Attribute.String;
+    Estoque: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    Preco: Schema.Attribute.Decimal;
+    Preco_adicional: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0>;
+    Preco_promocional: Schema.Attribute.Decimal;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ProdutoOpcaoVariacao extends Struct.ComponentSchema {
+  collectionName: 'components_produto_opcao_variacaos';
+  info: {
+    description: 'Op\u00E7\u00E3o individual (ex: Preto, UP Preto, etc.)';
+    displayName: 'Op\u00E7\u00E3o de Varia\u00E7\u00E3o';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Cor_hex: Schema.Attribute.String;
+    Foto: Schema.Attribute.Media<'images'>;
+    Foto_destaque: Schema.Attribute.Media<'images'>;
+    Galeria: Schema.Attribute.Media<'images', true>;
+    Nome: Schema.Attribute.String & Schema.Attribute.Required;
+    Preco: Schema.Attribute.Decimal;
+    Preco_adicional: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0>;
+    Preco_promocional: Schema.Attribute.Decimal;
+  };
+}
+
+export interface ProdutoRevestimento extends Struct.ComponentSchema {
+  collectionName: 'components_produto_revestimentos';
+  info: {
+    description: 'Tipo de revestimento (ex: Poli\u00E9ster, Couro, Mesh) com suas respectivas cores';
+    displayName: 'Revestimento';
+    icon: 'layer';
+  };
+  attributes: {
+    Cores: Schema.Attribute.Component<'produto.cor-revestimento', true> &
+      Schema.Attribute.Required;
+    Descricao: Schema.Attribute.String;
+    Foto_amostra: Schema.Attribute.Media<'images'>;
+    Nome: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ProdutoVariacaoCor extends Struct.ComponentSchema {
   collectionName: 'components_produto_variacao_cors';
   info: {
-    description: 'Varia\u00E7\u00E3o de cor com galeria de fotos e estoque';
-    displayName: 'Varia\u00E7\u00E3o de Cor';
+    description: 'Varia\u00E7\u00E3o com cor, tamanho, fotos, pre\u00E7o e estoque';
+    displayName: 'Varia\u00E7\u00E3o de Produto';
     icon: 'palette';
   };
   attributes: {
@@ -140,10 +227,11 @@ export interface ProdutoVariacaoCor extends Struct.ComponentSchema {
     Estoque: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     Galeria: Schema.Attribute.Media<'images', true>;
     Miniatura: Schema.Attribute.Media<'images'>;
-    Nome_cor: Schema.Attribute.String & Schema.Attribute.Required;
+    Nome_cor: Schema.Attribute.String;
     Preco: Schema.Attribute.Decimal;
     Preco_diferenciado: Schema.Attribute.Decimal;
     Preco_promocional: Schema.Attribute.Decimal;
+    Tamanho: Schema.Attribute.String;
   };
 }
 
@@ -342,8 +430,13 @@ declare module '@strapi/strapi' {
       'menu.link': MenuLink;
       'menu.menu': MenuMenu;
       'menu.mobile-item': MenuMobileItem;
+      'produto.cor-revestimento': ProdutoCorRevestimento;
       'produto.especificacao-item': ProdutoEspecificacaoItem;
+      'produto.grupo-variacao': ProdutoGrupoVariacao;
       'produto.item-acordeao': ProdutoItemAcordeao;
+      'produto.opcao-medida': ProdutoOpcaoMedida;
+      'produto.opcao-variacao': ProdutoOpcaoVariacao;
+      'produto.revestimento': ProdutoRevestimento;
       'produto.variacao-cor': ProdutoVariacaoCor;
       'secoes.banner-principal': SecoesBannerPrincipal;
       'secoes.catalogo': SecoesCatalogo;

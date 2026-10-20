@@ -1,0 +1,52 @@
+{
+  "collectionName": "components_produto_opcao_variacaos",
+  "info": {
+    "displayName": "Opção de Variação",
+    "icon": "bulletList",
+    "description": "Opção individual (ex: Preto, UP Preto, etc.)"
+  },
+  "options": {},
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Foto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Preco": {
+      "type": "decimal"
+    },
+    "Preco_promocional": {
+      "type": "decimal"
+    },
+    "Preco_adicional": {
+      "type": "decimal",
+      "default": 0
+    },
+    "Cor_hex": {
+      "type": "string"
+    },
+    "Foto_destaque": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Galeria": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

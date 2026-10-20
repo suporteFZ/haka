@@ -27,6 +27,12 @@
       "type": "integer",
       "default": 0
     },
+    "Preco": {
+      "type": "decimal"
+    },
+    "Preco_promocional": {
+      "type": "decimal"
+    },
     "Parcelas": {
       "type": "integer",
       "default": 10
@@ -51,6 +57,13 @@
     "Imagem_destaque": {
       "type": "media",
       "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Galeria": {
+      "type": "media",
+      "multiple": true,
       "allowedTypes": [
         "images"
       ]
@@ -86,6 +99,21 @@
     "Variacoes": {
       "type": "component",
       "component": "produto.variacao-cor",
+      "repeatable": true
+    },
+    "Opcoes_medida": {
+      "type": "component",
+      "component": "produto.opcao-medida",
+      "repeatable": true
+    },
+    "Revestimentos": {
+      "type": "component",
+      "component": "produto.revestimento",
+      "repeatable": true
+    },
+    "Grupos_variacao": {
+      "type": "component",
+      "component": "produto.grupo-variacao",
       "repeatable": true
     },
     "Imagem_recursos": {

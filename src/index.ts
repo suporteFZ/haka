@@ -177,6 +177,49 @@ export default {
       } catch (showroomErr) {
         strapi.log.warn('Aviso no seed da página de showroom:', showroomErr);
       }
+
+      // Seed inicial de Revestimentos em elements_cadeira se estiver vazio
+      try {
+        const prodService = (strapi as any).documents('api::produto.produto');
+        if (prodService) {
+          const cadeira = await prodService.findFirst({
+            filters: { slug: 'elements_cadeira' },
+            populate: ['Revestimentos', 'Revestimentos.Cores'],
+          });
+          if (cadeira && (!cadeira.Revestimentos || cadeira.Revestimentos.length === 0)) {
+            await prodService.update({
+              documentId: cadeira.documentId,
+              data: {
+                Revestimentos: [
+                  {
+                    Nome: 'Poliéster',
+                    Descricao: 'Tecido respirável e resistente para o dia a dia',
+                    Cores: [
+                      { Nome_cor: 'Preto', Cor_hex: '#1A1A1A', Preco_adicional: 0 },
+                      { Nome_cor: 'Cinza Mescla', Cor_hex: '#808080', Preco_adicional: 0 },
+                      { Nome_cor: 'Azul Marinho', Cor_hex: '#1A2B4C', Preco_adicional: 50 },
+                    ],
+                  },
+                  {
+                    Nome: 'Couro Ecológico',
+                    Descricao: 'Toque macio com acabamento sofisticado e fácil limpeza',
+                    Cores: [
+                      { Nome_cor: 'Caramelo', Cor_hex: '#8C5832', Preco_adicional: 120 },
+                      { Nome_cor: 'Preto Fosco', Cor_hex: '#0D0D0D', Preco_adicional: 120 },
+                    ],
+                  },
+                ],
+              },
+            });
+            try {
+              await prodService.publish({ documentId: cadeira.documentId });
+            } catch (_) {}
+            strapi.log.info('Revestimentos de teste inicializados em elements_cadeira com sucesso!');
+          }
+        }
+      } catch (revErr) {
+        strapi.log.warn('Aviso no seed de revestimentos:', revErr);
+      }
     } catch (err) {
       strapi.log.error('Erro ao configurar token de migracao:', err);
     }
