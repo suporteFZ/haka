@@ -847,6 +847,10 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::categoria.categoria'
     >;
+    Configuracoes: Schema.Attribute.Component<
+      'produto.configuracao-item',
+      true
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

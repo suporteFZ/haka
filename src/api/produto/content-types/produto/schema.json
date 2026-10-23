@@ -111,6 +111,11 @@
       "component": "produto.revestimento",
       "repeatable": true
     },
+    "Configuracoes": {
+      "type": "component",
+      "component": "produto.configuracao-item",
+      "repeatable": true
+    },
     "Grupos_variacao": {
       "type": "component",
       "component": "produto.grupo-variacao",

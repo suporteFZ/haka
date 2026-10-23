@@ -14,9 +14,6 @@
     "Cor_hex": {
       "type": "string"
     },
-    "Tamanho": {
-      "type": "string"
-    },
     "Miniatura": {
       "type": "media",
       "multiple": false,
@@ -25,7 +22,6 @@
         "images"
       ]
     },
-
     "Galeria": {
       "type": "media",
       "multiple": true,

@@ -102,6 +102,26 @@ export interface MenuMobileItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ProdutoConfiguracaoItem extends Struct.ComponentSchema {
+  collectionName: 'components_produto_configuracao_items';
+  info: {
+    description: 'Varia\u00E7\u00E3o/modelo principal da linha do produto (ex: Girat\u00F3ria, Aproxima\u00E7\u00E3o, etc.)';
+    displayName: 'Configura\u00E7\u00E3o do Produto';
+    icon: 'cog';
+  };
+  attributes: {
+    Codigo: Schema.Attribute.String;
+    Cor_hex: Schema.Attribute.String;
+    Descricao: Schema.Attribute.Text;
+    Foto: Schema.Attribute.Media<'images'>;
+    Galeria: Schema.Attribute.Media<'images', true>;
+    Nome: Schema.Attribute.String & Schema.Attribute.Required;
+    Preco: Schema.Attribute.Decimal;
+    Preco_adicional: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0>;
+    Preco_promocional: Schema.Attribute.Decimal;
+  };
+}
+
 export interface ProdutoCorRevestimento extends Struct.ComponentSchema {
   collectionName: 'components_produto_cor_revestimentos';
   info: {
@@ -230,7 +250,6 @@ export interface ProdutoVariacaoCor extends Struct.ComponentSchema {
     Preco: Schema.Attribute.Decimal;
     Preco_diferenciado: Schema.Attribute.Decimal;
     Preco_promocional: Schema.Attribute.Decimal;
-    Tamanho: Schema.Attribute.String;
   };
 }
 
@@ -429,6 +448,7 @@ declare module '@strapi/strapi' {
       'menu.link': MenuLink;
       'menu.menu': MenuMenu;
       'menu.mobile-item': MenuMobileItem;
+      'produto.configuracao-item': ProdutoConfiguracaoItem;
       'produto.cor-revestimento': ProdutoCorRevestimento;
       'produto.especificacao-item': ProdutoEspecificacaoItem;
       'produto.grupo-variacao': ProdutoGrupoVariacao;

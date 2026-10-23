@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_produto_configuracao_items",
+  "info": {
+    "displayName": "Configuração do Produto",
+    "icon": "cog",
+    "description": "Variação/modelo principal da linha do produto (ex: Giratória, Aproximação, etc.)"
+  },
+  "options": {},
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "Codigo": {
+      "type": "string"
+    },
+    "Foto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Galeria": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Preco": {
+      "type": "decimal"
+    },
+    "Preco_promocional": {
+      "type": "decimal"
+    },
+    "Preco_adicional": {
+      "type": "decimal",
+      "default": 0
+    },
+    "Cor_hex": {
+      "type": "string"
+    },
+    "Descricao": {
+      "type": "text"
+    }
+  }
+}
