@@ -63,6 +63,9 @@
     },
     "Whatsapp_numero": {
       "type": "string"
+    },
+    "link_logo_fz": {
+      "type": "string"
     }
   }
 }

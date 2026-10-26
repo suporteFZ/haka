@@ -358,6 +358,7 @@ export interface SecoesFooter extends Struct.ComponentSchema {
     cta_titulo: Schema.Attribute.String;
     descricao_curta: Schema.Attribute.Text;
     email: Schema.Attribute.Email;
+    link_logo_fz: Schema.Attribute.String;
     logo_fz: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     menu_links: Schema.Attribute.Component<'menu.menu', true>;
     redes_sociais: Schema.Attribute.Component<'secoes.redes', true>;

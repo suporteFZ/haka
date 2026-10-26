@@ -62,6 +62,9 @@
         "videos",
         "audios"
       ]
+    },
+    "link_logo_fz": {
+      "type": "string"
     }
   },
   "config": {}
