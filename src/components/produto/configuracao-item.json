@@ -14,6 +14,11 @@
     "Codigo": {
       "type": "string"
     },
+    "categorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria"
+    },
     "Foto": {
       "type": "media",
       "multiple": false,

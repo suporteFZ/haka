@@ -62,6 +62,12 @@
     },
     "Texto_catalogo": {
       "type": "text"
+    },
+    "produtos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::produto.produto",
+      "inversedBy": "categorias"
     }
   }
 }

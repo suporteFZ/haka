@@ -75,10 +75,11 @@
         "images"
       ]
     },
-    "categoria": {
+    "categorias": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::categoria.categoria"
+      "relation": "manyToMany",
+      "target": "api::categoria.categoria",
+      "mappedBy": "produtos"
     },
     "marca": {
       "type": "relation",

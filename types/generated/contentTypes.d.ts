@@ -547,6 +547,7 @@ export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Logo_marca: Schema.Attribute.Media<'images'>;
     Nome: Schema.Attribute.String;
+    produtos: Schema.Attribute.Relation<'manyToMany', 'api::produto.produto'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'Nome'>;
     subcategorias: Schema.Attribute.Relation<
@@ -844,8 +845,8 @@ export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
   attributes: {
     Altura_recomendada: Schema.Attribute.String;
     Ativo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    categoria: Schema.Attribute.Relation<
-      'manyToOne',
+    categorias: Schema.Attribute.Relation<
+      'manyToMany',
       'api::categoria.categoria'
     >;
     Configuracoes: Schema.Attribute.Component<

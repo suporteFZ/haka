@@ -110,6 +110,10 @@ export interface ProdutoConfiguracaoItem extends Struct.ComponentSchema {
     icon: 'cog';
   };
   attributes: {
+    categorias: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::categoria.categoria'
+    >;
     Codigo: Schema.Attribute.String;
     Cor_hex: Schema.Attribute.String;
     Descricao: Schema.Attribute.Text;
