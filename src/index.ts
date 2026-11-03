@@ -54,6 +54,8 @@ export default {
             'api::pagina-showroom.pagina-showroom.find',
             'api::categoria-projeto.categoria-projeto.find',
             'api::categoria-projeto.categoria-projeto.findOne',
+            'api::post.post.find',
+            'api::post.post.findOne',
           ];
           for (const action of actions) {
             const existing = await strapi.query('plugin::users-permissions.permission').findOne({

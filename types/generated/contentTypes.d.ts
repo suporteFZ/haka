@@ -832,6 +832,36 @@ export interface ApiPaginaShowroomPaginaShowroom
   };
 }
 
+export interface ApiPostPost extends Struct.CollectionTypeSchema {
+  collectionName: 'posts';
+  info: {
+    description: 'Artigos e publica\u00E7\u00F5es do Blog';
+    displayName: 'Post';
+    pluralName: 'posts';
+    singularName: 'post';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Banner: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::post.post'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Resumo: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID<'Titulo'> & Schema.Attribute.Required;
+    Texto: Schema.Attribute.RichText;
+    Titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProdutoProduto extends Struct.CollectionTypeSchema {
   collectionName: 'produtos';
   info: {
@@ -1476,6 +1506,7 @@ declare module '@strapi/strapi' {
       'api::pagina-home.pagina-home': ApiPaginaHomePaginaHome;
       'api::pagina-projeto.pagina-projeto': ApiPaginaProjetoPaginaProjeto;
       'api::pagina-showroom.pagina-showroom': ApiPaginaShowroomPaginaShowroom;
+      'api::post.post': ApiPostPost;
       'api::produto.produto': ApiProdutoProduto;
       'api::projeto.projeto': ApiProjetoProjeto;
       'plugin::content-releases.release': PluginContentReleasesRelease;
