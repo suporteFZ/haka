@@ -269,6 +269,8 @@ export interface SecoesBannerPrincipal extends Struct.ComponentSchema {
     Texto: Schema.Attribute.String;
     texto_botao: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Visite nosso showroom em Toledo'>;
+    link_botao: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'/showroom'>;
   };
 }
 

@@ -32,6 +32,10 @@
     "texto_botao": {
       "type": "string",
       "default": "Visite nosso showroom em Toledo"
+    },
+    "link_botao": {
+      "type": "string",
+      "default": "/showroom"
     }
   },
   "config": {}
